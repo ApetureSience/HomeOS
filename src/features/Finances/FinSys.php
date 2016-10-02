@@ -16,15 +16,23 @@
             return $H->replaceMarkers($marker, $H->openPage("features/Finances/templates/finances.html"));
         }
         
-        private function loadBookings($bankAcc){
-            /*session_start();
+        private function loadBookings($bankAcc){            
+            session_start();
+            
+            $H        = new Helper;
+            $db       = mysqli_connect("localhost", "admin", "Kuchen123");
+            
+            $database = mysqli_select_db($db, "HomeOS");
 
-            $Server   = new Server("localhost", "FinSys", "admin", "Kuchen123");
-            $db       = $Server->connect();
+            if(!$database){
+                echo "Kann die Datenbank nicht benutzen : " . mysqli_connect_error();
+                mysqli_close($db);
+                exit;
+            }
 
             $output   = "";
 
-            $bookings = $Server->selectAllByID($bankAcc."-".$_SESSION['userData']['ID'], $db);
+            $bookings = $H->selectAllByID("bankAcc".$bankAcc, $db);
 
             foreach($bookings as $listItem){
                 if($listItem['value'] < 0){
@@ -57,22 +65,30 @@
                 $output .= '</tr>';
             }
 
-            return $output;*/
+            return $output;
         }
 
         private function getBankAcc(){
-            /*session_start();
+            session_start();
+            
+            $H     = new Helper;
+            $db    = mysqli_connect("localhost", "admin", "Kuchen123");
+            
+            $database = mysqli_select_db($db, "HomeOS");
 
-            $ServerFS = new Server("localhost", "FinSys", "admin", "Kuchen123");
-            $dbFS     = $ServerFS->connect();
+            if(!$database){
+                echo "Kann die Datenbank nicht benutzen : " . mysqli_connect_error();
+                mysqli_close($db);
+                exit;
+            }
 
-            $dbAcc    = $ServerFS->selectAllByID("bankAcc", $dbFS);
+            $dbAcc = $H->selectAllByID("bankAcc", $db);
 
-            $res      = "";
+            $res   = "";
 
             foreach($dbAcc as $acc){
                 if($acc['owner'] == $_SESSION['userData']['ID']){
-                    $res .= '<div class="list-group"><a href="http://192.168.1.107/mrfibunacci.de/src/php/?pages=index&sp=finances&bankAcc='.$acc['name'].'" class="list-group-item">'.$acc['name'];
+                    $res .= '<div class="list-group"><a href="http://192.168.1.107/HomeOS/src/?p=finances&bankAcc='.$acc['name'].'" class="list-group-item">'.$acc['name'];
                     if($acc['mainValue'] >= 0){
                         $res .= '<span class="label label-success pull-right">+'.number_format($acc['mainValue'] ,2 ,',', '.').'</span></a></div>';
                     } else {
@@ -81,7 +97,7 @@
                 }
             }
 
-            return $res;*/
+            return $res;
         }
     }
 ?>

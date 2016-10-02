@@ -31,5 +31,35 @@
 
             return $content;
         }
+        
+        //Angepasst für FinSys
+        public function insertOnTop($link, $sql){
+            $table = explode("`", $sql);
+
+            $oldData = self::selectAllByID($table[1], $link);
+            
+            foreach($oldData as $key => $entity){
+                $newData[$key+1] = $entity;
+            }
+            
+            mysqli_query($link, "TRUNCATE news");
+            mysqli_query($link, $sql);
+            
+            foreach($newData as $key => $value){
+                //mysqli_query($link, "INSERT INTO `bankAcc` (`date`, `text`) VALUES ('".$value['date']."','".$value['text']."')");
+                mysqli_query($link, "INSERT INTO `bankAcc` (`name`, `mainValue`) VALUES ('Main', 140)");
+            }
+        }
+        
+        public function selectAllByID($table, $db){
+            $i = 1;
+            do{
+                $content[] = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM `".$table."` WHERE `ID`=".$i));
+                $i++;
+            }while($content[$i-2] != null);
+            array_pop($content);
+
+            return $content;
+        }
     }
 ?>
