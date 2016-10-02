@@ -7,14 +7,19 @@
         public function management($querySite){
             switch($querySite){
                 case "inv":{
-                    $fOut = "Läuft";
+                    $fOut = self::showInvetory();
                 }break;
             }
             
             return $fOut;
         }
         
-        public function showGroups(){
+        private function showInvetory(){
+            $H = new Helper;
+            return $H->openPage("features/Logistik/templates/inventory.html");
+        }
+        
+        private function showGroups(){
             $H = new Helper;
             return $H->openPage("features/Logistik/templates/groups.html");
         }
