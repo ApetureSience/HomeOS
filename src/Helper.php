@@ -42,12 +42,13 @@
                 $newData[$key+1] = $entity;
             }
             
-            mysqli_query($link, "TRUNCATE news");
+            mysqli_query($link, "TRUNCATE ".$table[1]);
             mysqli_query($link, $sql);
             
             foreach($newData as $key => $value){
                 //mysqli_query($link, "INSERT INTO `bankAcc` (`date`, `text`) VALUES ('".$value['date']."','".$value['text']."')");
-                mysqli_query($link, "INSERT INTO `bankAcc` (`name`, `mainValue`) VALUES ('Main', 140)");
+                mysqli_query($link, "INSERT INTO `".$table[1]."`(`date/time`, `category`, `title`, `value`) VALUES (".$value['date/time'].",".$value['category'].",".$value['title'].",".$value['value'].")");
+                echo "INSERT INTO `".$table[1]."`(`date/time`, `category`, `title`, `value`) VALUES ('".$value['date/time']."', '".$value['category']."', '".$value['title']."', '".$value['value']."')";
             }
         }
         

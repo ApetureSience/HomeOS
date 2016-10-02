@@ -1,6 +1,8 @@
 <?php
     //includes
-    require_once("../src/Helper.php");
+    require_once("D:/Projects/HomeOS/src/Helper.php");
+    
+    $H        = new Helper;
 
     $db       = mysqli_connect("localhost", "admin", "Kuchen123");
             
