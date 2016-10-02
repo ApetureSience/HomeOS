@@ -1,5 +1,8 @@
 <?php
-    $db    = mysqli_connect("localhost", "admin", "Kuchen123");
+    //includes
+    require_once("../src/Helper.php");
+
+    $db       = mysqli_connect("localhost", "admin", "Kuchen123");
             
     $database = mysqli_select_db($db, "HomeOS");
 
