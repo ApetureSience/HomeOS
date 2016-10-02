@@ -9,7 +9,7 @@
                     
                 case "logistik":{
                     $Logistik = new Logistik;
-                    //$out = $Inv->showGroups();
+                    $out = $Logistik->management($_GET['q']);
                 }break;
             }
             
