@@ -5,26 +5,10 @@
  * Date: 29.09.2016
  * Time: 11:12
  */
-    require_once("../Server.php");
-
-
-    /*
-     * weil ich zu blöd bin
-     * require_once("../BuildContent.php");
-     * zum laufen zu bringen. Hier die replaceMarker funktion
-     */
-    function replaceMarkers($markers, $origContent)
-    {
-        $content = $origContent;
-
-        foreach ($markers as $key => $value) {
-            $content = str_replace('###'.$key.'###', $value, $content);
-        }
-
-        return $content;
-    }
+    require_once("../src/Helper.php");
 
     $Server = new Server("localhost", "FinSys", "admin", "Kuchen123");
+    $H      = new Helper;
     $db     = $Server->connect();
 
     $path = "addBankAcc.sql";
@@ -33,7 +17,7 @@
 
     session_start();
     $m['NAME'] = $_POST['name']."-".$_SESSION['userData']['ID'];
-    $sql = replaceMarkers($m, $sql);
+    $sql = $H->replaceMarkers($m, $sql);
 
     //mysqli_query($db, $sql);
 
