@@ -22,21 +22,24 @@
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> 
+                        </button>
                         <a class="navbar-brand" href="#">HomeOS</a>
                     </div>
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="?p=finances">Finanzen</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="?p=logistik">Logistik<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="?p=logistik&q=inv">Inventar</a></li>
-                                <li></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="header-right">
-                        <a href="logout.php" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Home</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="?p=logistik">Logistik<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="?p=logistik&q=inv">Inventar</a></li>
+                                    <li></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav><!-- /. NAV TOP  -->
