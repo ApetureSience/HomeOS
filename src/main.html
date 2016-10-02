@@ -26,7 +26,12 @@
                     </div>
                     <ul class="nav navbar-nav">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Inventar</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="?p=inv">Inventar<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="?p=inv&q=groups">Groups</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <div class="header-right">
                         <a href="logout.php" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
@@ -35,7 +40,7 @@
             </nav><!-- /. NAV TOP  -->
             <div id="page-wrapper">
                 <div id="page-inner">
-                    
+                    ###content###
                 </div><!-- /. PAGE INNER  -->
             </div><!-- /. PAGE WRAPPER  -->
         </div><!-- /. WRAPPER  -->
