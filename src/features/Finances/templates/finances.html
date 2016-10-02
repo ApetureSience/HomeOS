@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-head-line">Finanzen<i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h1>
+    </div>
+</div>
+<did class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel panel-heading">
+                <h4>Konten</h4>
+            </div>
+            <div class="panel panel-body">
+                ###bankAcc###
+                <!--<div class="list-group">
+                    <a href="http://192.168.1.107/mrfibunacci.de/src/php/?pages=index&sp=finances&bankAcc=Main" class="list-group-item">Main <span class="label label-success pull-right">+124,15</span></a>
+                </div>-->
+            </div>
+            <div class="panel panel-footer">
+                <form class="form-inline" method="post" action="../php/FinSys/addBankAcc.php">
+                    <div class="form-group">
+                        <label>Neues Konto Hinzufügen:</label>
+                        <input type="text" class="form-control" placeholder="Name" name="name">
+                        <input type="number" class="form-control" placeholder="Start Wert" name="value">
+                        <input type="hidden" value="">
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel panel-heading">
+                <h4><b>Buchungen:</b> (###acc###)</h4>
+            </div>
+            <div class="panel panel-body">
+                <!--<h3 class="text-right"><b>+124,15 €</b></h3>-->
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>dd.mm.yyyy hh:mm:ss</th>
+                            <th>Kategorie</th>
+                            <th>Titel</th>
+                            <th>Wert</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            ###bookings###
+                            <!--<tr>
+                                <form method="post" action="">
+                                    <td><input type="datetime-local"></td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"></td>
+                                    <td><input type="number"><input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/></td>
+                                </form>
+                            </tr>
+                            <tr class="warning">
+                                <td>27.09.2016 09:39:34</td>
+                                <td>Miete</td>
+                                <td></td>
+                                <td><b>-1.200,00 €</b></td>
+                            </tr>
+                            <tr class="success">
+                                <td>27.09.2016 09:33:35</td>
+                                <td>Job</td>
+                                <td>mehr Weil überstunden</td>
+                                <td><b>+3.324,15 €</b></td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <form class="form-inline" method="post" action="../php/FinSys/addBooking.php">
+                    <div class="form-group">
+                        <label>Neue Buchung Hinzufügen:</label>
+                        <input type="datetime-local" class="form-control"                             name="date">
+                        <input type="text"           class="form-control" placeholder="Kategorie"     name="category">
+                        <input type="text"           class="form-control" placeholder="Titel"         name="title">
+                        <input type="number"         class="form-control" placeholder="Wert"          name="value">
+                        <input type="hidden" value="###acc###" name="table">
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</did>
