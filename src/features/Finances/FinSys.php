@@ -44,7 +44,8 @@
                     if(!is_numeric($key)){
                         switch($key){
                             case "date/time":{
-                                $output .= '<td>'.$value.'</td>';
+                                $date = explode(" ", $value);
+                                $output .= '<td>'.$H->parseDate($date[0])." ".$date[1].'</td>';
                             }break;
 
                             case "category":

@@ -62,5 +62,19 @@
 
             return $content;
         }
+        
+        public function parseDate($date){
+            if(isset($date)){
+                $toParseDate = explode("-", $date);
+                $date = null;
+                for($i=2; $i > -1; $i--) {
+                    $date .= $toParseDate[$i];
+                    if($i > 0){
+                        $date .= ".";
+                    }
+                }
+                return $date;
+            }
+        }
     }
 ?>
